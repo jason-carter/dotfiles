@@ -46,6 +46,8 @@ set linebreak		" wrap long lines at a 'breakat'
 
 "" Searching
 set ignorecase		" case insensitive searches
+set incsearch		" search as characters are entered
+"set hlsearch		" highlight matches
 
 "" Encryption
 set cm=blowfish		" securer vim encryption with blowfish
@@ -54,7 +56,7 @@ let g:GPGPreferArmor=1	" GPG setting (better than vim's encryption?) for using a
 let g:GPGDefaultRecipients=["jjcarter@me.com"]
 
 "" Look n feel
-set guifont=Cousine:h9
+set guifont=Consolas:h10
 set number		" show line numbers in the gutter
 set cursorline		" highlight the current row
 "set cursorcolumn	" highlight the current column
@@ -64,7 +66,11 @@ set background=light	" use light backgrounds
 set nofoldenable	" don't like code folding
 "set colorcolumn=85	" add a coloured line at column 85 to indicate if a line is too long
 "set synmaxcol=120	" highlighting for first 120 columns only - a performance tweak
-set tabstop=4
+set tabstop=8		" number of visual spaces per TAB
+set softtabstop=8	" number of spaces in tab when editing
+"set expandtab		" tabs are spaces
+set lazyredraw		" redraw only when need to
+set showmatch		" highlight matching [{()}]
 
 "" Status bar
 set laststatus=2	"so that the status line will appear with only one window
@@ -111,7 +117,7 @@ function! FocusModeOn()
 	set guioptions-=m			" remove menu bar
 	set guioptions-=T			" remove toolbar
 	set lines=999 columns=999
-	"set fuoptions=background:#00f5f6f6	" macvim specific setting for editor's background color 
+	"set fuoptions=background:#00f5f6f6	" macvim specific setting for editor's background color
 	"set fullscreen				" macvim specific go to fullscreen editing mode
 endfunc
 
@@ -142,13 +148,9 @@ nnoremap <F1> :call ToggleFocusMode()<cr>
 "" GUI Specific settings
 if has('gui_win32')
 
-	"color solarized
-	"color amethyst
-	"color desert2
-	color iawriter
-	"color zenburn
+	color darkblue
 	set linespace=1 " reset this for now - changed to 5 as part of iawriter
-	
+
 elseif has('gui_macvim')
 
 	" Switch OSX windows with swipes
