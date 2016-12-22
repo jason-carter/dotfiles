@@ -68,6 +68,7 @@ set nofoldenable	" don't like code folding
 "set synmaxcol=120	" highlighting for first 120 columns only - a performance tweak
 set tabstop=8		" number of visual spaces per TAB
 set softtabstop=8	" number of spaces in tab when editing
+set breakindent		" Wrap lines maintaining indent
 "set expandtab		" tabs are spaces
 set lazyredraw		" redraw only when need to
 set showmatch		" highlight matching [{()}]
